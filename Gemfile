@@ -11,7 +11,7 @@ gem 'dotenv-rails'
 
 gem 'mongoid'
 
-gem 'devise'
+gem 'sorcery'
 gem 'canable'
 
 gem 'haml'
@@ -40,8 +40,10 @@ end
 group :test do
   gem 'rspec-rails'
 
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1', require: false
   gem 'factory_girl_rails'
 
   gem 'database_cleaner'
+
+  gem 'simplecov', require: false
 end
