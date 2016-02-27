@@ -10,9 +10,10 @@ gem 'puma'
 gem 'dotenv-rails'
 
 gem 'mongoid'
+gem 'mongoid-enum'
 
 gem 'sorcery'
-gem 'canable'
+gem 'pundit'
 
 gem 'active_interaction', '~> 3.0'
 

@@ -11,5 +11,9 @@ FactoryGirl.define do
     email
     username
     password 'iloveplanets'
+
+    trait :admin do
+      role :admin
+    end
   end
 end

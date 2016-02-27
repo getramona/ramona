@@ -12,6 +12,7 @@ require 'spec_helper'
 require 'rspec/rails'
 
 require 'shoulda/matchers'
+require 'pundit/rspec'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
