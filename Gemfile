@@ -14,6 +14,8 @@ gem 'mongoid'
 gem 'sorcery'
 gem 'canable'
 
+gem 'active_interaction', '~> 3.0'
+
 gem 'haml'
 
 gem 'turbolinks'
