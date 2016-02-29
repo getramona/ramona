@@ -7,15 +7,11 @@ describe Team, type: :model do
     expect(team).to validate_presence_of :name
   end
 
-  it 'belongs to an Organization' do
-    relation = Team.relations['organization'].relation
-
-    expect(relation).to eql Mongoid::Relations::Referenced::In
+  it 'belongs to an organization' do
+    expect(team).to belong_to :organization
   end
 
-  it 'has and belongs to many Users' do
-    relation = Team.relations['users'].relation
-
-    expect(relation).to eql Mongoid::Relations::Referenced::ManyToMany
+  it 'has and belongs to many users' do
+    expect(team).to have_and_belong_to_many :users
   end
 end

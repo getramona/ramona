@@ -15,15 +15,11 @@ describe User, type: :model do
     expect(user).to validate_presence_of :email
   end
 
-  it 'has and belongs to many Organizations' do
-    relation = user.relations['organizations'].relation
-
-    expect(relation).to eql Mongoid::Relations::Referenced::ManyToMany
+  it 'has and belongs to many organizations' do
+    expect(user).to have_and_belong_to_many :organizations
   end
 
-  it 'has and belongs to many Teams' do
-    relation = user.relations['teams'].relation
-
-    expect(relation).to eql Mongoid::Relations::Referenced::ManyToMany
+  it 'has and belongs to many teams' do
+    expect(user).to have_and_belong_to_many :teams
   end
 end

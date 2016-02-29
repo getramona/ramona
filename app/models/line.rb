@@ -1,4 +1,4 @@
-class Team
+class Line
   include Mongoid::Document
   include Mongoid::Timestamps
 
@@ -6,7 +6,6 @@ class Team
 
   belongs_to :organization
 
-  has_and_belongs_to_many :users
-
-  validates :name, presence: true
+  has_many :garments
+  has_many :attachments, as: :attachable
 end

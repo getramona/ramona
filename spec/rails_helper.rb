@@ -17,12 +17,14 @@ require 'pundit/rspec'
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
-    with.library :rails
+    with.library :active_model
+    with.library :action_controller
   end
 end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Mongoid::Matchers, type: :model
 
   config.before :suite do
     DatabaseCleaner.strategy = :truncation

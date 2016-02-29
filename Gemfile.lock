@@ -123,6 +123,10 @@ GEM
       tzinfo (>= 0.3.37)
     mongoid-enum (0.4.0)
       mongoid (~> 5.0)
+    mongoid-rspec (3.0.0)
+      mongoid (~> 5.0)
+      rake
+      rspec (~> 3.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -176,6 +180,10 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
     rspec-core (3.4.1)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -250,6 +258,7 @@ DEPENDENCIES
   log_buddy
   mongoid
   mongoid-enum
+  mongoid-rspec
   pry-rails
   puma
   pundit
