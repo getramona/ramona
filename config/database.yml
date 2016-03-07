@@ -1,5 +1,12 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: ramona_development
   pool: 5
+
+development:
+  <<: *default
+  database: ramona_development
+
+test:
+  <<: *default
+  database: ramona_test

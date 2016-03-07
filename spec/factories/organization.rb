@@ -1,10 +1,10 @@
 FactoryGirl.define do
-  sequence :domain do |n|
-    "planetary#{n}.org"
+  sequence :subdomain do |n|
+    "planetary#{n}"
   end
 
   factory :organization do
     name 'Planetary Society'
-    domain
+    subdomain
   end
 end

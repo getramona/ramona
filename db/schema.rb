@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160307015931) do
     t.datetime "last_activity_at"
     t.string   "last_login_from_ip_address"
     t.string   "name"
+    t.string   "username",                                    null: false
     t.integer  "role",                            default: 0
   end
 
