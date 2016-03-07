@@ -38,4 +38,6 @@ Rails.application.configure do
 
   # Set the default mailer settings.
   config.action_mailer.default_url_options = { host: 'localhost', port: 1025 }
+
+  config.reset_password_mailer = User
 end

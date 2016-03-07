@@ -7,10 +7,9 @@ gem 'rails', '4.2.5.1'
 gem 'foreman'
 gem 'puma'
 
-gem 'dotenv-rails'
+gem 'pg'
 
-gem 'mongoid'
-gem 'mongoid-enum'
+gem 'dotenv-rails'
 
 gem 'sorcery'
 gem 'pundit'
@@ -38,6 +37,8 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'annotate'
 end
 
 group :test do
@@ -45,7 +46,6 @@ group :test do
 
   gem 'shoulda-matchers', '~> 3.1', require: false
   gem 'factory_girl_rails'
-  gem 'mongoid-rspec'
 
   gem 'database_cleaner'
 

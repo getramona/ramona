@@ -4,6 +4,7 @@ require 'rails'
 
 %w[
   active_model
+  active_record
   active_job
   action_controller
   action_mailer
