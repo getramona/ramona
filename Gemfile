@@ -39,6 +39,7 @@ group :development do
   gem 'binding_of_caller'
 
   gem 'annotate'
+  gem 'rails-erd'
 end
 
 group :test do

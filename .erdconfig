@@ -1,0 +1,12 @@
+attributes:
+  - primary_keys
+  - foreign_keys
+  - inheritance
+  - content
+disconnected: true
+indirect: true
+inheritance: true
+notation: simple
+orientation: horizontal
+polymorphism: true
+title: Ramona
