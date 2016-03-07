@@ -8,4 +8,12 @@ describe Line, type: :model do
 
     expect(empty_line).to_not be_valid
   end
+
+  it 'belongs to an organization' do
+    expect(line).to belong_to :organization
+  end
+
+  it 'has many garments' do
+    expect(line).to have_many :garments
+  end
 end

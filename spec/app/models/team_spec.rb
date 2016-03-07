@@ -18,4 +18,12 @@ describe Team, type: :model do
   it 'has an organization' do
     expect(team).to validate_presence_of :organization
   end
+
+  it 'has many memberships' do
+    expect(team).to have_many :memberships
+  end
+
+  it 'has many users' do
+    expect(team).to have_many(:users).through(:memberships)
+  end
 end
