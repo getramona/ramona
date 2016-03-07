@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: lines
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  season     :string
+#  year       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+class Line < ActiveRecord::Base
+  belongs_to :organization
+
+  has_many :garments
+
+  validates :name, presence: true, if: Proc.new { |line|
+    line.season.blank? && line.year.blank?
+  }
+end
