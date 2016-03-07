@@ -11,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 
-class Membership < ActiveRecord::Base
+class Membership < ApplicationRecord
   enum role: [:user, :leader]
 
   belongs_to :group, polymorphic: true

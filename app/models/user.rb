@@ -28,7 +28,7 @@
 #  role                            :integer          default(0)
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   authenticates_with_sorcery!
 
   enum role: [:user, :admin]

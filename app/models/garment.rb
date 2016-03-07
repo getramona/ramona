@@ -10,7 +10,7 @@
 #  updated_at  :datetime         not null
 #
 
-class Garment < ActiveRecord::Base
+class Garment < ApplicationRecord
   belongs_to :line
 
   has_many :uploads, as: :uploadable

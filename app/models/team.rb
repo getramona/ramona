@@ -10,7 +10,7 @@
 #  updated_at      :datetime         not null
 #
 
-class Team < ActiveRecord::Base
+class Team < ApplicationRecord
   has_many :memberships, as: :group, dependent: :destroy
   has_many :users, through: :memberships
 

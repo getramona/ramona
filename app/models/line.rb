@@ -11,7 +11,7 @@
 #  updated_at      :datetime         not null
 #
 
-class Line < ActiveRecord::Base
+class Line < ApplicationRecord
   belongs_to :organization
 
   has_many :garments
