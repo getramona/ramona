@@ -12,6 +12,11 @@
 #
 
 class Membership < ActiveRecord::Base
+  enum role: [:user, :leader]
+
   belongs_to :group, polymorphic: true
   belongs_to :user
+
+  validates :group, presence: true
+  validates :user, presence: true
 end

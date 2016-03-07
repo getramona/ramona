@@ -31,7 +31,12 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
+  enum role: [:user, :admin]
+
   has_many :memberships, dependent: :destroy
   has_many :organizations, through: :memberships, source: :group, source_type: 'Organization'
   has_many :organizations, through: :memberships, source: :group, source_type: 'Team'
+
+  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
 end

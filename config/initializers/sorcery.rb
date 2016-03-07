@@ -282,7 +282,7 @@ Rails.application.config.sorcery.configure do |config|
     # your mailer class. Required.
     # Default: `nil`
     #
-    # user.user_activation_mailer =
+    user.user_activation_mailer = UserMailer
 
 
     # when true sorcery will not automatically
@@ -405,7 +405,7 @@ Rails.application.config.sorcery.configure do |config|
     # Unlock token mailer class
     # Default: `nil`
     #
-    # user.unlock_token_mailer = UserMailer
+    user.unlock_token_mailer = UserMailer
 
     # -- activity logging --
     # Last login attribute name.

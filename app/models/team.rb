@@ -15,4 +15,8 @@ class Team < ActiveRecord::Base
   has_many :users, through: :memberships
 
   belongs_to :organization
+
+  validates :name, presence: true
+  validates :permalink, presence: true, uniqueness: { scope: :organization_id }
+  validates :organization, presence: true
 end

@@ -14,4 +14,7 @@ class Organization < ActiveRecord::Base
   has_many :memberships, as: :group, dependent: :destroy
   has_many :users, through: :memberships
   has_many :teams
+
+  validates :name, presence: true, uniqueness: true
+  validates :subdomain, presence: true, uniqueness: true
 end
