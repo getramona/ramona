@@ -13,4 +13,8 @@
 /tmp
 coverage/
 
+# OS X stuff
 .DS_Store
+
+# Gemsets
+.gems/

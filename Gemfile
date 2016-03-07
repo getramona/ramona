@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '5.0.0.beta3'
 
 gem 'foreman'
 gem 'puma'
@@ -28,6 +28,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'listen' # Fixes load issues with Rails 5
+
 group :development, :test do
   gem 'pry-rails'
 
@@ -43,7 +45,7 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '3.5.0.beta1'
 
   gem 'shoulda-matchers', '~> 3.1', require: false
   gem 'factory_girl_rails'
