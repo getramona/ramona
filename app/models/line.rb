@@ -2,12 +2,13 @@
 #
 # Table name: lines
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  season     :string
-#  year       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string
+#  season          :string
+#  year            :string
+#  organization_id :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #
 
 class Line < ActiveRecord::Base
