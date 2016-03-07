@@ -10,4 +10,8 @@ describe Garment, type: :model do
   it 'has many uploads' do
     expect(garment).to have_many :uploads
   end
+
+  it 'has many comments' do
+    expect(garment).to have_many :comments
+  end
 end

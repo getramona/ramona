@@ -7,6 +7,10 @@ describe Upload, type: :model do
     expect(upload).to belong_to :uploadable
   end
 
+  it 'has many comments' do
+    expect(upload).to have_many :comments
+  end
+
   it 'has an uploadable' do
     expect(upload).to validate_presence_of :uploadable
   end

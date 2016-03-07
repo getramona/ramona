@@ -34,4 +34,8 @@ describe User, type: :model do
   it 'has many team through memberships with the group field' do
     expect(user).to have_many(:teams).through(:memberships).source(:group)
   end
+
+  it 'has many comments' do
+    expect(user).to have_many :comments
+  end
 end
