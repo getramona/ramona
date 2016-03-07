@@ -15,6 +15,7 @@ class Line < ActiveRecord::Base
   belongs_to :organization
 
   has_many :garments
+  has_many :uploads, as: :uploadable
 
   validates :name, presence: true, if: Proc.new { |line|
     line.season.blank? && line.year.blank?

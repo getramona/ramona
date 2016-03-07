@@ -16,4 +16,8 @@ describe Line, type: :model do
   it 'has many garments' do
     expect(line).to have_many :garments
   end
+
+  it 'has many uploads' do
+    expect(line).to have_many :uploads
+  end
 end

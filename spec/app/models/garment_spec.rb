@@ -6,4 +6,8 @@ describe Garment, type: :model do
   it 'belongs to a line' do
     expect(garment).to belong_to :line
   end
+
+  it 'has many uploads' do
+    expect(garment).to have_many :uploads
+  end
 end

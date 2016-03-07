@@ -12,4 +12,6 @@
 
 class Garment < ActiveRecord::Base
   belongs_to :line
+
+  has_many :uploads, as: :uploadable
 end
