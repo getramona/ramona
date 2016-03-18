@@ -6,12 +6,12 @@ class CreateUser < ActiveInteraction::Base
   end
 
   def execute
-    _user = User.new(inputs)
+    user = User.new(inputs)
 
-    unless _user.save
-      errors.merge!(_user.errors)
+    unless user.save
+      errors.merge!(user.errors)
     end
 
-    _user
+    user
   end
 end
