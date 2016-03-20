@@ -11,10 +11,12 @@ describe CreateUser, type: :interaction do
     context 'with valid inputs' do
       let(:action) do
         CreateUser.run(
-          name: 'Bill Nye',
-          email: generate(:email),
-          username: generate(:username),
-          password: 'iloveplanets'
+          user: {
+            name: 'Bill Nye',
+            email: generate(:email),
+            username: generate(:username),
+            password: 'iloveplanets'
+          }
         )
       end
 

@@ -1,21 +1,25 @@
 class UpdateUser < ApplicationInteraction
   object :current_user, class: User
-  object :user
-  string :email, :name, :username, default: nil
+  hash :user do
+    object :user
+    string :email, :name, :username, default: nil
+  end
 
   def execute
-    authorize(current_user, user, :update?)
+    _user = user[:user]
 
-    return user unless errors.messages.empty?
+    authorize(current_user, _user, :update?)
 
-    user.email    = email    if email?
-    user.name     = name     if name?
-    user.username = username if username?
+    return _user unless errors.messages.empty?
 
-    unless user.save
-      errors.merge!(user.errors)
+    _user.email    = user[:email]    if user[:email]
+    _user.name     = user[:name]     if user[:name]
+    _user.username = user[:username] if user[:username]
+
+    unless _user.save
+      errors.merge!(_user.errors)
     end
 
-    user
+    _user
   end
 end

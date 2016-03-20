@@ -1,29 +1,26 @@
 class CreateUser < ApplicationInteraction
   object :current_user, class: User, default: nil
-  string :email, :name, :username, :password
+  hash :user do
+    string :email, :name, :username, :password
+  end
 
   def to_model
     User.new
   end
 
   def execute
-    user = User.new
+    _user = User.new
 
-    authorize(current_user, user, :create?)
+    authorize(current_user, _user, :create?)
 
-    return user unless errors.messages.empty?
+    return _user unless errors.messages.empty?
 
-    user.update_attributes(
-      email: email,
-      name: name,
-      username: username,
-      password: password
-    )
+    _user.update_attributes(user.except(:user))
 
-    unless user.save
-      errors.merge!(user.errors)
+    unless _user.save
+      errors.merge!(_user.errors)
     end
 
-    user
+    _user
   end
 end

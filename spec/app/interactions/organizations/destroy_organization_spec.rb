@@ -1,15 +1,16 @@
 require 'rails_helper'
 
-describe DestroyUser, type: :interaction do
-  let(:user) { create :user }
+describe DestroyOrganization, type: :interaction do
+  let(:admin) { create :user, :admin }
+  let(:organization) { create :organization }
 
   describe '#execute' do
     context 'with valid inputs' do
       let(:action) do
-        DestroyUser.run(
-          current_user: user,
-          user: {
-            user: user
+        DestroyOrganization.run(
+          current_user: admin,
+          organization: {
+            organization: organization
           }
         )
       end
@@ -27,20 +28,16 @@ describe DestroyUser, type: :interaction do
       let(:outsider) { create :user }
 
       let(:action) do
-        DestroyUser.run(
+        DestroyOrganization.run(
           current_user: outsider,
-          user: {
-            user: user
+          organization: {
+            organization: organization
           }
         )
       end
 
       it 'is not valid' do
         expect(action.valid?).to be_falsey
-      end
-
-      it 'did not destroy the user' do
-        expect(action.result.destroyed?).to be_falsey
       end
     end
   end

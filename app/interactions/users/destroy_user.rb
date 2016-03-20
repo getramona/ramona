@@ -1,14 +1,18 @@
 class DestroyUser < ApplicationInteraction
   object :current_user, class: User
-  object :user
+  hash :user do
+    object :user
+  end
 
   def execute
-    authorize(current_user, user, :destroy?)
+    _user = user[:user]
 
-    return user unless errors.messages.empty?
+    authorize(current_user, _user, :destroy?)
 
-    user.destroy
+    return _user unless errors.messages.empty?
 
-    user
+    _user.destroy
+
+    _user
   end
 end

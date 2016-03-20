@@ -9,10 +9,12 @@ describe UpdateUser, type: :interaction do
       let(:action) do
         UpdateUser.run(
           current_user: admin,
-          user: user,
-          name: 'Neil deGrasse Tyson',
-          email: 'neiltyson@foo.com',
-          username: 'neiltyson'
+          user: {
+            user: user,
+            name: 'Neil deGrasse Tyson',
+            email: 'neiltyson@foo.com',
+            username: 'neiltyson'
+          }
         )
       end
 
@@ -42,10 +44,12 @@ describe UpdateUser, type: :interaction do
       let(:action) do
         UpdateUser.run(
           current_user: outsider,
-          user: user,
-          name: 'Neil deGrasse Tyson',
-          email: 'neiltyson@foo.com',
-          username: 'neiltyson'
+          user: {
+            user: user,
+            name: 'Neil deGrasse Tyson',
+            email: 'neiltyson@foo.com',
+            username: 'neiltyson'
+          }
         )
       end
 
