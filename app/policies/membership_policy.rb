@@ -8,7 +8,7 @@ class MembershipPolicy < ApplicationPolicy
   end
 
   def new?
-    organization_leader? || team_leader? || admin?
+    empty_organization? || organization_leader? || team_leader? || admin?
   end
 
   def create?
@@ -41,6 +41,10 @@ class MembershipPolicy < ApplicationPolicy
 
   def team_member?
     team? && Membership.where(group: @record.group, user: @user).exists?
+  end
+
+  def empty_organization?
+    organization? && Membership.where(group: @record.group).empty?
   end
 
   def organization?

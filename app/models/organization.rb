@@ -16,6 +16,6 @@ class Organization < ApplicationRecord
   has_many :teams
   has_many :lines
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :subdomain, presence: true, uniqueness: true
 end
