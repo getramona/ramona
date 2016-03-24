@@ -1,0 +1,2 @@
+class RamonaController < ApplicationController
+end
