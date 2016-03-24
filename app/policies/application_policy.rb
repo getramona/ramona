@@ -38,6 +38,10 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
+  def pundit_user
+    UserContext.new(current_user, current_organization, current_team)
+  end
+
   def admin?
     @user&.admin?
   end

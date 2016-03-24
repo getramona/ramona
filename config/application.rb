@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Ramona
   class Application < Rails::Application
     config.autoload_paths += Dir.glob("#{config.root}/app/interactions/*")
+    config.autoload_paths += Dir.glob("#{config.root}/app/contexts/*")
     config.autoload_paths += Dir.glob("#{config.root}/app/policies/*")
   end
 end

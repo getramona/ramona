@@ -27,6 +27,17 @@ class OrganizationPolicy < ApplicationPolicy
     Membership.where(group: @record, user: @user).exists?
   end
 
+  def pundit_user
+    UserContext.new(current_user, current_organization)
+  end
+
   class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.where(id: user.organizations.pluck(:id))
+      end
+    end
   end
 end

@@ -55,6 +55,17 @@ class MembershipPolicy < ApplicationPolicy
     @record.group_type == 'Team'
   end
 
+  def pundit_user
+    UserContext.new(current_user, current_organization)
+  end
+
   class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.where(group_id: user.organizations.pluck(:id), group_type: 'Organization')
+      end
+    end
   end
 end

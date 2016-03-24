@@ -39,7 +39,17 @@ class GarmentPolicy < ApplicationPolicy
     Membership.where(group: organization, user: @user).exists?
   end
 
+  def pundit_user
+    UserContext.new(current_user, current_organization)
+  end
 
   class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.where(line_id: record.line.organizations.lines.pluck(:id))
+      end
+    end
   end
 end

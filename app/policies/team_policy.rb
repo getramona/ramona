@@ -47,6 +47,17 @@ class TeamPolicy < ApplicationPolicy
     @record.organization
   end
 
+  def pundit_user
+    UserContext.new(current_user, current_organization)
+  end
+
   class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.where(organization_id: user.organizations.pluck(:id))
+      end
+    end
   end
 end
