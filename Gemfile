@@ -21,7 +21,7 @@ gem 'haml'
 gem 'turbolinks'
 
 gem 'sass-rails', '~> 5.0'
-gem 'compass-rails'
+gem 'bourbon'
 gem 'susy'
 
 gem 'coffee-rails', '~> 4.1.0'
@@ -39,6 +39,8 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  gem 'quiet_assets'
 
   gem 'annotate'
   gem 'rails-erd'

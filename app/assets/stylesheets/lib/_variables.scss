@@ -1,0 +1,56 @@
+$font-family-sans-serif: "usual", Helvetica Neue, Helvetica, Arial, sans-serif;
+
+$font-size-n1: 0.9em;
+$font-size-base: 16px;
+$font-size-0: 1em;
+$font-size-1: 1.15em;
+$font-size-2: 1.3em;
+$font-size-3: 1.5em;
+$font-size-4: 1.75em;
+$font-size-5: 2em;
+$font-size-6: 2.25em;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$line-height-base: 1.625;
+
+$v: ($font-size-0 / 1em) * $line-height-base * 1rem;
+
+$color-white: #fdfdfd;
+$color-text: #2d4154;
+$color-purple: #44018D;
+$color-tan: #F4F1EC;
+
+$color-blue:       #0091E5;
+$color-blue-light: lighten($color-blue, 10%);
+$color-blue-dark:  darken($color-blue, 7.5%);
+$color-green:      #8DCF3F;
+$color-green-dark: darken($color-green, 7.5%);
+$color-navy:       #27415A;
+$color-magenta:    #D6457F;
+$color-orange:     #FF9233;
+$color-red:        #D14040;
+$color-yellow:     #F1C40F;
+$color-white:      #FFF;
+$color-mint:       #21B899;
+
+$color-gray-a2:  rgba(desaturate($color-navy, 10%), 0.9);
+$color-gray-a1:  rgba(desaturate($color-navy, 10%), 0.5);
+$color-gray-a0:  rgba(desaturate($color-navy, 10%), 0.4);
+$color-gray-an1: rgba(desaturate($color-navy, 10%), 0.2);
+$color-gray-an2: rgba(desaturate($color-navy, 10%), 0.1);
+$color-gray-an3: rgba(desaturate($color-navy, 10%), 0.05);
+$color-gray-an4: rgba(desaturate($color-navy, 10%), 0.03333);
+
+$color-true-gray-a2:  rgba(desaturate($color-navy, 100%), 0.9);
+$color-true-gray-a1:  rgba(desaturate($color-navy, 100%), 0.5);
+$color-true-gray-a0:  rgba(desaturate($color-navy, 100%), 0.4);
+$color-true-gray-an1: rgba(desaturate($color-navy, 100%), 0.2);
+$color-true-gray-an2: rgba(desaturate($color-navy, 100%), 0.1);
+$color-true-gray-an3: rgba(desaturate($color-navy, 100%), 0.05);
+$color-true-gray-an4: rgba(desaturate($color-navy, 100%), 0.03333);
+
+$max-width-narrow: 35em;
+$max-width-wide: 60em;

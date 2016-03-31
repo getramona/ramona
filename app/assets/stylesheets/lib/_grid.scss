@@ -1,0 +1,31 @@
+@import "susy";
+
+// https://github.com/ericam/susy/issues/425
+@mixin box-sizing($box-model: $default-box-sizing) {
+  @if type-of($box-model) == string {
+    $box-model: unquote($box-model);
+  }
+
+  @include prefixed-properties(css3-boxsizing, $box-sizing-support-threshold, (box-sizing: $box-model));
+}
+
+$total-columns: 24;
+$column-width: 1.75em;
+$gutter-width: 0.625em;
+
+$susy: (
+    columns: $total-columns,
+    gutters: $gutter-width / $column-width,
+    column-width: $column-width
+);
+
+$mobile-small: 240px;
+$mobile-large: 320px;
+$tablet-small: 480px;
+$tablet-large: 768px;
+$screen-small: 1024px;
+$screen-large: 1280px;
+
+.row {
+  @include container;
+}

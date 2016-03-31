@@ -1,0 +1,30 @@
+@import "lib/base"
+
+body
+  +container
+  +display(flex)
+  +align-items(center)
+  +justify-content(center)
+  +box-pack(center)
+
+  min-height: 100vh
+
+
+main
+  +prefix(4)
+  +span(16 of 24)
+  +suffix(4)
+  +flex(none)
+
+.card
+  +border-radius(2px)
+
+  background: $color-true-gray-an2
+  box-sizing: border-box
+
+  &__header
+    padding-left: rhythm(2)
+    padding-top: rhythm(1)
+
+  &__form
+    padding: rhythm(1) rhythm(2) rhythm(1) rhythm(2)

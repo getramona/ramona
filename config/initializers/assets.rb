@@ -10,9 +10,6 @@ Rails.application.config.assets.paths << "#{Rails.root}/app/assets/img"
 Rails.application.config.assets.paths << "#{Rails.root}/app/assets/jsc"
 Rails.application.config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
-# Include the Susy Sass library.
-Rails.application.config.compass.require 'susy'
-
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-# Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( card.css card.js )

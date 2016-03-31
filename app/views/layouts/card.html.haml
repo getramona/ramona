@@ -1,0 +1,23 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+
+    %title Ramona
+
+    = stylesheet_link_tag "card", "data-turbolinks-track" => true
+
+    = csrf_meta_tags
+
+    %script{src: "https://use.typekit.net/dvg5gfi.js"}
+    :coffeescript
+      try
+        Typekit.load async: true
+      catch e
+  %body
+    %main
+      .card
+        = yield
+
+    = javascript_include_tag "card", "data-turbolinks-track" => true

@@ -1,0 +1,11 @@
+%h3.card__header Login
+
+= form_tag sessions_create_url, class: 'form card__form', type: :post do
+  .form__row
+    %p= label_tag 'user[email]', 'Email'
+    %p= email_field_tag 'user[email]'
+  .form__row
+    %p= label_tag 'user[password]', 'Password'
+    %p= password_field_tag 'user[password]'
+  .form__row
+    %p= submit_tag 'Login'

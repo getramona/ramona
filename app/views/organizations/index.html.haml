@@ -1,0 +1,6 @@
+%ul.organizations
+  - @organizations.each do |organization|
+    %li.organization
+      = link_to organization.name, root_url(subdomain: organization.subdomain)
+  %li.organizations__new
+    = link_to 'New Organization', join_organization_url
