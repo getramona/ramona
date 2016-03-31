@@ -1,18 +1,16 @@
 require 'rails_helper'
 
-describe CreateLine do
+describe CreateProject do
   let(:admin) { create :user, :admin }
   let(:organization) { create :organization }
 
   context 'with valid input' do
     let(:action) do
-      CreateLine.run(
+      CreateProject.run(
         current_user: admin,
-        line: {
+        project: {
           organization: organization,
-          name: 'Spring/Summer 2016',
-          season: 'Spring/Summer',
-          year: '2016'
+          name: 'Spring/Summer 2016'
         }
       )
     end
@@ -21,8 +19,8 @@ describe CreateLine do
       expect(action.valid?).to be_truthy
     end
 
-    it 'results in a line' do
-      expect(action.result).to be_an_instance_of Line
+    it 'results in a project' do
+      expect(action.result).to be_an_instance_of Project
     end
 
     it 'sets the organization' do
@@ -32,19 +30,11 @@ describe CreateLine do
     it 'sets the name' do
       expect(action.result.name).to eql 'Spring/Summer 2016'
     end
-
-    it 'sets the season' do
-      expect(action.result.season).to eql 'Spring/Summer'
-    end
-
-    it 'sets the year' do
-      expect(action.result.year).to eql '2016'
-    end
   end
 
   context 'with invalid input' do
     let(:action) do
-      CreateLine.run
+      CreateProject.run
     end
 
     it 'is not valid' do

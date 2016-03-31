@@ -5,8 +5,8 @@ describe GarmentPolicy, type: :policy do
 
   let(:admin)  { create :user, :admin }
   let(:garment) { create :garment }
-  let(:line) { garment.line }
-  let(:organization) { line.organization }
+  let(:project) { garment.project }
+  let(:organization) { project.organization }
   let(:leadership) { create :membership, :leader, group: organization }
   let(:leader) { leadership.user }
   let(:membership) { create :membership, group: organization }

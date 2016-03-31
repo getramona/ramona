@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :garment do
     name 'Tee'
 
-    line
+    project
   end
 end

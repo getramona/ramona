@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :teams
-  resources :lines do
+  resources :projects do
     resources :garments
   end
 end

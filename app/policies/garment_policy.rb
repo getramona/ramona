@@ -28,7 +28,7 @@ class GarmentPolicy < ApplicationPolicy
   end
 
   def organization
-    @record.line.organization
+    @record.project.organization
   end
 
   def organization_leader?
@@ -48,7 +48,7 @@ class GarmentPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(line_id: record.line.organizations.lines.pluck(:id))
+        scope.where(project_id: record.project.organizations.projects.pluck(:id))
       end
     end
   end

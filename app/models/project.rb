@@ -11,13 +11,11 @@
 #  updated_at      :datetime         not null
 #
 
-class Line < ApplicationRecord
+class Project < ApplicationRecord
   belongs_to :organization
 
   has_many :garments
   has_many :uploads, as: :uploadable
 
-  validates :name, presence: true, if: Proc.new { |line|
-    line.season.blank? && line.year.blank?
-  }
+  validates :name, presence: true
 end

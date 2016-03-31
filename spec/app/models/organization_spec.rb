@@ -27,7 +27,7 @@ describe Organization, type: :model do
     expect(organization).to have_many(:teams)
   end
 
-  it 'has many lines' do
-    expect(organization).to have_many :lines
+  it 'has many projects' do
+    expect(organization).to have_many :projects
   end
 end

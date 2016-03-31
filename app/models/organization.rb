@@ -14,7 +14,7 @@ class Organization < ApplicationRecord
   has_many :memberships, as: :group, dependent: :destroy
   has_many :users, through: :memberships
   has_many :teams
-  has_many :lines
+  has_many :projects
 
   validates :name, presence: true
   validates :subdomain, presence: true, uniqueness: true

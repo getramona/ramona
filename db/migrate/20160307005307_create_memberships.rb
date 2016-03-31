@@ -1,4 +1,4 @@
-class CreateMemberships < ActiveRecord::Migration
+class CreateMemberships < ActiveRecord::Migration[5.0]
   def change
     create_table :memberships do |t|
       t.references :user,       null: false
@@ -9,7 +9,6 @@ class CreateMemberships < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :memberships, :user_id
     add_index :memberships, [ :group_id, :group_type ]
   end
 end

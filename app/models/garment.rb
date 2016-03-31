@@ -11,7 +11,7 @@
 #
 
 class Garment < ApplicationRecord
-  belongs_to :line
+  belongs_to :project
 
   has_many :uploads, as: :uploadable
   has_many :comments, as: :commentable

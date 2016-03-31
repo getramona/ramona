@@ -1,4 +1,4 @@
-class LinePolicy < ApplicationPolicy
+class ProjectPolicy < ApplicationPolicy
   def index?
     organization_member? || admin?
   end

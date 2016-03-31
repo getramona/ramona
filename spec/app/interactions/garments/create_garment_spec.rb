@@ -2,14 +2,14 @@ require 'rails_helper'
 
 describe CreateGarment do
   let(:admin) { create :user, :admin }
-  let(:line) { create :line }
+  let(:project) { create :project }
 
   context 'with valid input' do
     let(:action) do
       CreateGarment.run(
         current_user: admin,
         garment: {
-          line: line,
+          project: project,
           name: 'Tee'
         }
       )
@@ -23,8 +23,8 @@ describe CreateGarment do
       expect(action.result).to be_an_instance_of Garment
     end
 
-    it 'sets the line' do
-      expect(action.result.line).to eql line
+    it 'sets the project' do
+      expect(action.result.project).to eql project
     end
 
     it 'sets the name' do

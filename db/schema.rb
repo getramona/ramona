@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20160307053344) do
     t.integer  "user_id",    null: false
     t.string   "provider",   null: false
     t.string   "uid",        null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "authentications", ["provider", "uid"], name: "index_authentications_on_provider_and_uid", using: :btree
@@ -35,22 +35,17 @@ ActiveRecord::Schema.define(version: 20160307053344) do
     t.datetime "updated_at",       null: false
   end
 
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "garments", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "line_id"
+    t.integer  "project_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "lines", force: :cascade do |t|
-    t.string   "name"
-    t.string   "season"
-    t.string   "year"
-    t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
+  add_index "garments", ["project_id"], name: "index_garments_on_project_id", using: :btree
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id",                null: false
@@ -72,6 +67,15 @@ ActiveRecord::Schema.define(version: 20160307053344) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "projects", ["organization_id"], name: "index_projects_on_organization_id", using: :btree
+
   create_table "teams", force: :cascade do |t|
     t.string   "name",            null: false
     t.string   "permalink",       null: false
@@ -79,6 +83,8 @@ ActiveRecord::Schema.define(version: 20160307053344) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
+
+  add_index "teams", ["organization_id"], name: "index_teams_on_organization_id", using: :btree
 
   create_table "uploads", force: :cascade do |t|
     t.integer  "uploadable_id"
@@ -91,8 +97,8 @@ ActiveRecord::Schema.define(version: 20160307053344) do
     t.string   "email",                                       null: false
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
     t.string   "activation_state"
     t.string   "activation_token"
     t.datetime "activation_token_expires_at"

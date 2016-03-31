@@ -1,7 +1,7 @@
 class CreateGarment < ApplicationInteraction
   object :current_user, class: User
   hash :garment do
-    object :line
+    object :project
     string :name
     string :description, default: nil
   end

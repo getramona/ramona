@@ -1,15 +1,16 @@
 require 'rails_helper'
 
-describe DestroyLine do
+describe UpdateProject do
   let(:admin) { create :user, :admin }
-  let(:line) { create :line }
+  let(:project) { create :project }
 
   context 'with valid input' do
     let(:action) do
-      DestroyLine.run(
+      UpdateProject.run(
         current_user: admin,
-        line: {
-          line: line
+        project: {
+          project: project,
+          name: 'Fall/Winter 2016'
         }
       )
     end
@@ -18,18 +19,18 @@ describe DestroyLine do
       expect(action.valid?).to be_truthy
     end
 
-    it 'results in a line' do
-      expect(action.result).to be_an_instance_of Line
+    it 'results in a project' do
+      expect(action.result).to be_an_instance_of Project
     end
 
-    it 'destroys the line' do
-      expect(action.result.destroyed?).to be_truthy
+    it 'sets the name' do
+      expect(action.result.name).to eql 'Fall/Winter 2016'
     end
   end
 
   context 'with invalid input' do
     let(:action) do
-      DestroyLine.run
+      UpdateProject.run
     end
 
     it 'is not valid' do
