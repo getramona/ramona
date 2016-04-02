@@ -1,4 +1,6 @@
-%h3.card__header Login
+%h3.card__header Welcome back!
+
+= render partial: 'layouts/flash', locals: { flash: flash }
 
 = form_tag sessions_create_url, class: 'form card__form', type: :post do
   .form__row
@@ -7,5 +9,6 @@
   .form__row
     %p= label_tag 'user[password]', 'Password'
     %p= password_field_tag 'user[password]'
-  .form__row
-    %p= submit_tag 'Login'
+  .form__row.form__row--footer
+    = link_to "<i class='ss-icon icon-adjust'>back</i> Back".html_safe, root_path(subdomain: ''), class: "button left"
+    = button_tag "Login <i class='ss-icon icon-adjust'>login</i>".html_safe, class: "button button--green right", type: 'submit'

@@ -1,6 +1,15 @@
+%h3.card__header Organizations
 %ul.organizations
   - @organizations.each do |organization|
     %li.organization
-      = link_to organization.name, root_url(subdomain: organization.subdomain)
-  %li.organizations__new
-    = link_to 'New Organization', join_organization_url
+      = link_to root_url(subdomain: organization.subdomain), class: "organization__link" do
+        %span.organization__name= organization.name
+        %span.organization__icon
+          %i.ss-icon.icon-adjust next
+
+.organizations__actions
+  %span= link_to 'New Organization', join_organization_url, class: "button button--green button--medium"
+  %nav.nav.nav--card
+    %ul.nav__list
+      %li.nav__item= link_to "Account", "#", class: "nav__link"
+      %li.nav__item= link_to "Logout", logout_url, class: "nav__link"

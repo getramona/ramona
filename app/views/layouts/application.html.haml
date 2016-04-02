@@ -16,26 +16,28 @@
         Typekit.load async: true
       catch e
   %body
-    %header.header{role: 'banner'}
-      .row.header__row.header__row--primary
-        %nav.nav.nav--header.nav--primary
-          = link_to @current_organization.name, root_url, class: 'header__logo'
-          %ul.nav__list
-            %li.nav__item
-              = link_to "Projects", lines_url, class: 'nav__link'
-            %li.nav__item
-              = link_to "People", users_url, class: 'nav__link'
-            %li.nav__item
-              = link_to "Teams", teams_url, class: 'nav__link'
-        %nav.nav.nav--header.nav--secondary
-          %ul.nav__list
-            %li.nav__item
-              = link_to "Settings", "#", class: 'nav__link'
-            %li.nav__item
-              = link_to "Logout", logout_url, class: 'nav__link'
+    %header.header.header--site{role: 'banner'}
+      .header__primary
+        .header__row
+          %nav.nav.nav--header.nav--primary
+            = link_to @current_organization.name, root_url, class: 'header__logo'
+            %ul.nav__list
+              %li.nav__item
+                = link_to "Projects", projects_url, class: "nav__link #{enable_nav('projects')}"
+              %li.nav__item
+                = link_to "People", users_url, class: "nav__link #{enable_nav('users')}"
+              %li.nav__item
+                = link_to "Teams", teams_url, class: "nav__link #{enable_nav('teams')}"
+          %nav.nav.nav--header.nav--secondary
+            %ul.nav__list
+              %li.nav__item
+                = link_to "Settings", "#", class: "nav__link #{enable_nav('settings')}"
+              %li.nav__item
+                = link_to "Logout", logout_url, class: "nav__link"
       - if content_for(:secondary_header)
-        .row.header__row.header__row--secondary
-          = yield(:secondary_header)
+        .header__secondary
+          .row.header__row
+            = yield(:secondary_header)
 
     %main.main{role: 'main'}
       = yield

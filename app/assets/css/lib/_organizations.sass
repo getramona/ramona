@@ -1,0 +1,32 @@
+.organizations
+  margin-top: rhythm(1)
+  list-style-type: none
+
+  .organization
+    border-top: 1px solid $color-gray-an2
+
+    &:last-child
+      color: red
+      border-bottom: 1px solid $color-gray-an2
+
+    &__link
+      +clearfix
+
+      display: block
+      padding: rhythm(0.5) rhythm(1)
+
+    &__name, &__icon
+      display: inline-block
+
+    &__name
+      float: left
+
+    &__icon
+      float: right
+
+
+  &__actions
+    display: block
+    padding-bottom: rhythm(2)
+    margin-top: rhythm(1.5)
+    text-align: center

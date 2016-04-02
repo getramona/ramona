@@ -1,1 +1,11 @@
-%p Put recent changes here
+.page
+  %header.header.header--page
+    %h2.header__title Recent Activity
+  %ul.activity
+    %li.action
+      = link_to "#", class: "action__link" do
+        %aside
+          = image_tag "https://pbs.twimg.com/profile_images/658433422252228608/GDAEEwXn.jpg", class: "avatar"
+        %section
+          %p.action__text= "<strong>Ethan Turkeltaub</strong> did a thing".html_safe
+          %p.action__timestamp 30 mins ago

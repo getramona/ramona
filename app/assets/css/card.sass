@@ -1,0 +1,44 @@
+@import "lib/base"
+
+body
+  +container
+  +display(flex)
+  +align-items(center)
+  +justify-content(center)
+  +box-pack(center)
+
+  background: $color-tan
+  min-height: 100vh
+
+main
+  +prefix(5)
+  +span(14 of 24)
+  +suffix(5)
+  +flex(none)
+
+.card
+  +border-radius(2px)
+
+  background: $color-white
+  box-sizing: border-box
+
+  &__header
+    display: block
+    padding-top: rhythm(2)
+    font-weight: $font-weight-bold
+    font-size: $font-size-2
+    text-align: center
+
+  .flash
+    margin-top: rhythm(0.5)
+    padding-left: rhythm(2)
+    padding-right: rhythm(2)
+
+  .nav
+    margin-top: rhythm(0.5)
+
+  &__form
+    padding: rhythm(0.5) rhythm(2) rhythm(2) rhythm(2)
+
+    input[type="email"], input[type="password"]
+      width: 100%

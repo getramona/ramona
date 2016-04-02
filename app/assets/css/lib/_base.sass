@@ -1,0 +1,33 @@
+@import "bourbon"
+@import "reset"
+@import "variables"
+@import "functions"
+@import "mixins"
+@import "grid"
+
+@import "ss-gizmo"
+@import "icons"
+@import "buttons"
+@import "forms"
+@import "flash"
+@import "nav"
+@import "organizations"
+@import "activity"
+@import "avatar"
+
+body
+  background: $color-white
+  color: $color-text
+  font-family: $font-family-sans-serif
+  font-size: $font-size-base
+  line-height: $line-height-base + 0em
+
+a
+  color: $color-magenta
+  text-decoration: none
+
+  &:hover
+    color: shade($color-magenta, 15%)
+
+img
+  max-width: 100%

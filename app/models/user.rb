@@ -6,8 +6,8 @@
 #  email                           :string           not null
 #  crypted_password                :string
 #  salt                            :string
-#  created_at                      :datetime
-#  updated_at                      :datetime
+#  created_at                      :datetime         not null
+#  updated_at                      :datetime         not null
 #  activation_state                :string
 #  activation_token                :string
 #  activation_token_expires_at     :datetime
@@ -25,7 +25,7 @@
 #  last_login_from_ip_address      :string
 #  name                            :string
 #  username                        :string           not null
-#  role                            :integer          default(0)
+#  role                            :integer          default("user")
 #
 
 class User < ApplicationRecord

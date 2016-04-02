@@ -1,0 +1,27 @@
+.users
+  // margin-top: rhythm(1)
+
+  .user
+    border-top: 1px solid $color-gray-an2
+    margin: 0 rhythm(1)
+
+    &:last-child
+      border-bottom: 1px solid $color-gray-an2
+
+    &__link
+      +display(flex)
+      +align-items(center)
+      +justify-content(center)
+      +box-pack(center)
+
+      color: $color-gray-a2
+      padding: rhythm(0.5) 0
+
+    &__avatar, &__name, &__actions
+      +flex(1)
+
+    &__avatar
+      +flex-basis(5%)
+
+      max-width: 5%
+      margin-right: rhythm(0.5)

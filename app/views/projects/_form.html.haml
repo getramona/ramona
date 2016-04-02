@@ -1,0 +1,6 @@
+= form_for @project, class: 'form' do |f|
+  .form__row
+    = f.label :name
+    = f.text_field :name
+  .form__row
+    = f.submit "Save", class: "button"

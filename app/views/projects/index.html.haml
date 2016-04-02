@@ -1,0 +1,16 @@
+- content_for(:nav) { "projects" }
+
+%header.header.header--page
+  %h2.header__title Projects
+  %nav.nav.nav--page.nav--secondary
+    %ul.nav__list
+      %li.nav__item
+        = link_to "<i class='ss-icon icon-adjust'>plus</i> New".html_safe, new_project_url, class: "button button--blue"
+
+.projects
+  - @projects.each do |project|
+    .project.projects__project
+      = link_to project_url(project), class: 'project__link' do
+        .project__name
+          %h3= project.name
+        .project__actions

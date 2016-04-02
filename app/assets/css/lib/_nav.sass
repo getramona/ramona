@@ -5,6 +5,9 @@
     height: $font-size-1
     line-height: $font-size-1
 
+  &--card
+    font-size: $font-size-n2
+
   &--primary
     +span(12 of 24)
 
@@ -19,6 +22,9 @@
     display: inline-block
     margin-left: 0
 
+    &--sidebar
+      display: block
+
   &__item
     display: inline-block
     list-style-type: none
@@ -27,8 +33,30 @@
     & + &
       margin-left: $v / 2
 
+    &--sidebar
+      border-top: 1px solid $color-gray-an3
+      display: block
+      font-size: $font-size-n1
+
+      & + &
+        margin-left: 0
+
+      &:last-child
+        border-bottom: 1px solid $color-gray-an3
+
   &__link
     color: $color-gray-a0
 
     &--active
       color: $color-true-gray-a2
+
+    &--sidebar
+      display: block
+      padding: rhythm(0.5) rhythm(1)
+
+      &:hover
+        background: $color-gray-an3
+        color: $color-gray-a2
+
+      i
+        margin-right: rhythm(0.15)

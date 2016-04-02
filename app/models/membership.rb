@@ -6,7 +6,7 @@
 #  user_id    :integer          not null
 #  group_id   :integer          not null
 #  group_type :string           not null
-#  role       :integer          default(0)
+#  role       :integer          default("user")
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -1,0 +1,42 @@
+.activity
+  margin-top: rhythm(1)
+
+  .action
+    +border-radius(2px)
+
+    border-top: 1px solid $color-gray-an3
+    box-sizing: border-box
+    list-style-type: none
+
+    &:last-child
+      border-bottom: 1px solid $color-gray-an3
+
+    &__link
+      +display(flex)
+
+      color: $color-text
+      padding: rhythm(0.65) 0
+      width: 100%
+
+    aside, section
+      +flex(1)
+
+    aside
+      $width: 4%
+
+      +flex-basis($width)
+
+      margin-right: rhythm(1)
+      max-width: $width
+
+    section
+      $width: 96%
+
+      +flex-basis($width)
+
+      max-width: $width
+
+    &__timestamp
+      color: $color-gray-an1
+      font-size: $font-size-n1
+      font-style: italic

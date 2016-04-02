@@ -1,0 +1,18 @@
+- content_for(:nav) { "users" }
+
+%header.header.header--page
+  %h2.header__title People
+  %nav.nav.nav--page.nav--secondary
+    %ul.nav__list
+      %li.nav__item
+        = link_to "<i class='ss-icon icon-adjust'>plus</i> Invite".html_safe, new_user_url, class: "button button--blue"
+
+.users
+  - @users.each do |user|
+    .user.users__user
+      = link_to user_url(user), class: 'user__link' do
+        .user__avatar
+          = image_tag "https://avatars3.githubusercontent.com/u/137037?v=3&s=460", class: 'avatar'
+        .user__name
+          %h3= user.name
+        .user__actions

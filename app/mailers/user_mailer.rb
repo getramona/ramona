@@ -3,7 +3,5 @@ class UserMailer < ApplicationMailer
   end
 
   def activation_needed_email(user)
-  end
-
-  
+  end  
 end
