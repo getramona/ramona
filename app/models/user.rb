@@ -33,6 +33,8 @@ class User < ApplicationRecord
 
   enum role: [:user, :admin]
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :memberships, dependent: :destroy
   has_many :organizations, through: :memberships, source: :group, source_type: 'Organization'
   has_many :teams, through: :memberships, source: :group, source_type: 'Team'

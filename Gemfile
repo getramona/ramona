@@ -16,6 +16,14 @@ gem 'pundit'
 
 gem 'active_interaction', '~> 3.0'
 
+gem 'sidekiq'
+
+gem 'mini_magick'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'fog-aws'
+
+gem 'psd'
+
 gem 'haml'
 
 gem 'turbolinks'

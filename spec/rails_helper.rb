@@ -13,6 +13,7 @@ require 'rspec/rails'
 
 require 'shoulda/matchers'
 require 'pundit/rspec'
+require 'carrierwave/test/matchers'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -23,6 +24,7 @@ end
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include CarrierWave::Test::Matchers
 
   config.before :suite do
     DatabaseCleaner.strategy = :transaction
@@ -40,4 +42,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
+end
+
+def example_avatar
+  Rails.root.join('spec', 'fixtures', 'avatar.jpg')
 end
