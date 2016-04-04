@@ -47,3 +47,7 @@ end
 def example_avatar
   Rails.root.join('spec', 'fixtures', 'avatar.jpg')
 end
+
+def example_psd
+  Rails.root.join('spec', 'fixtures', 'psd.psd')
+end

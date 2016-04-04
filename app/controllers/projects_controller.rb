@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id              :integer          not null, primary key
+#  name            :string
+#  organization_id :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class ProjectsController < ApplicationController
   before_action :find_projects, only: [ :index ]
   before_action :find_project, except: [ :index, :new, :create ]

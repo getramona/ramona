@@ -22,7 +22,7 @@ gem 'mini_magick'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog-aws'
 
-gem 'psd'
+gem 'psd_native'
 
 gem 'haml'
 

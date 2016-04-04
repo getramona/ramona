@@ -7,9 +7,12 @@
 #  uploadable_type :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  file            :string
 #
 
 class Upload < ApplicationRecord
+  mount_uploader :file, FileUploader
+
   belongs_to :uploadable, polymorphic: true
 
   has_many :comments, as: :commentable

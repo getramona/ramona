@@ -26,6 +26,7 @@
 #  name                            :string
 #  username                        :string           not null
 #  role                            :integer          default("user")
+#  avatar                          :string
 #
 
 class User < ApplicationRecord

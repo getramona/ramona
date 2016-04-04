@@ -21,3 +21,6 @@ coverage/
 
 # Environment file
 .env
+
+# Uploads
+public/uploads/
