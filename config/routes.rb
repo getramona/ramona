@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :teams
   resources :projects do
     resources :garments
+    resources :inspirations
 
     get '/calendar', to: 'project#calendar'
     get '/specifications', to: 'project#specifications'

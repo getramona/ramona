@@ -8,6 +8,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  index_projects_on_organization_id  (organization_id)
+#
 
 class Project < ApplicationRecord
   belongs_to :organization

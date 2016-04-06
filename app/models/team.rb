@@ -9,6 +9,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+# Indexes
+#
+#  index_teams_on_organization_id  (organization_id)
+#
 
 class Team < ApplicationRecord
   has_many :memberships, as: :group, dependent: :destroy
