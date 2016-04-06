@@ -17,6 +17,6 @@
 class Inspiration < ApplicationRecord
   belongs_to :project
 
-  has_many :uploads, as: :uploadable
+  has_one :upload, as: :uploadable
   has_many :comments, as: :commentable
 end
