@@ -1,25 +1,11 @@
 - content_for(:nav) { "projects" }
 
-.dashboard
-  %aside.sidebar
-    %header.header.header--sidebar
-      %h2.sidebar__title= link_to @project.name, @project, class: "sidebar__title"
-    %nav.nav.nav--sidebar
-      %ul.nav__list.nav__list--sidebar
-        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>monitor</i> Dashboard".html_safe, project_url(id: @project.id), class: "nav__link nav__link--sidebar nav__link--active"
-        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>hanger</i> Garments".html_safe, project_garments_url(project_id: @project.id), class: "nav__link nav__link--sidebar"
-        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>briefcase</i> Calendar".html_safe, project_calendar_url(project_id: @project.id), class: "nav__link nav__link--sidebar"
-        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>bezier</i> Specifications".html_safe, project_specifications_url(project_id: @project.id), class: "nav__link nav__link--sidebar"
-        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>globe</i> Settings".html_safe, edit_project_url(id: @project.id), class: "nav__link nav__link--sidebar"
-  %section.content
-    %header.header.header--content
-      %h2.content__title Dashboard
-
-    %ul.activity
-      %li.action
-        = link_to "#", class: "action__link" do
-          %aside
-            = image_tag "https://pbs.twimg.com/profile_images/658433422252228608/GDAEEwXn.jpg", class: "avatar"
-          %section
-            %p.action__text= "<strong>Ethan Turkeltaub</strong> did a thing".html_safe
-            %p.action__timestamp 30 mins ago
+= render layout: 'dashboard', locals: { title: 'Dashboard' } do
+  %ul.activity
+    %li.action
+      = link_to "#", class: "action__link" do
+        %aside
+          = image_tag "https://pbs.twimg.com/profile_images/658433422252228608/GDAEEwXn.jpg", class: "avatar"
+        %section
+          %p.action__text= "<strong>Ethan Turkeltaub</strong> did a thing".html_safe
+          %p.action__timestamp 30 mins ago

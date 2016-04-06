@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
     { subdomain: request.subdomain }
   end
 
-  # before_action :require_login, :current_organization
-  before_action :current_organization
+  before_action :require_login, :current_organization
+  # before_action :current_organization
 
   private
 
