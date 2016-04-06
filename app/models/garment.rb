@@ -11,6 +11,8 @@
 #
 
 class Garment < ApplicationRecord
+  enum approval_status: [ :in_progress, :pending, :approved ]
+
   belongs_to :project
 
   has_many :uploads, as: :uploadable
