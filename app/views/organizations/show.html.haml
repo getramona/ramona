@@ -1,4 +1,4 @@
-.page
+.page.dashboard
   %header.header.header--page
     %h2.header__title Recent Activity
   %ul.activity
@@ -9,3 +9,6 @@
         %section
           %p.action__text= "<strong>Ethan Turkeltaub</strong> did a thing".html_safe
           %p.action__timestamp 30 mins ago
+  %ul.projects
+    - @projects.each do |project|
+      %li= link_to project.name, project_url(project)

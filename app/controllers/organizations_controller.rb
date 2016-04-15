@@ -6,5 +6,6 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    @projects = current_organization.projects.order('updated_at desc')
   end
 end

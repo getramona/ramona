@@ -11,5 +11,5 @@
   %span= link_to 'New Organization', join_organization_url, class: "button button--green button--medium"
   %nav.nav.nav--card
     %ul.nav__list
-      %li.nav__item= link_to "Account", "#", class: "nav__link"
+      %li.nav__item= link_to "Account", account_url(subdomain: 'app'), class: "nav__link"
       %li.nav__item= link_to "Logout", logout_url, class: "nav__link"
