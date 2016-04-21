@@ -1,0 +1,28 @@
+- content_for(:nav) { "projects" }
+
+= render layout: 'dashboard', locals: { title: 'Garments', sidebar: 'garments' } do
+  .garment
+    %h3.garment__name
+      = @garment.name
+    .garment__info
+      %figure.garment__thumbnail
+        = image_tag @garment.uploads.first.file.url
+      .garment__data
+        %p= @garment.description
+        %table
+          %tr
+            %td.key SKU
+            %td.value.sku= @garment.sku
+          %tr
+            %td.key Approval status
+            %td.value= @garment.approval_status.humanize
+          %tr
+            %td.key Last updated
+            %td.value= @garment.updated_at.strftime('%d %B %Y, %I:%M%P')
+    .garment__uploads
+      %header
+        = form_tag project_garment_add_upload_url(project_id: @project.id, garment_id: @garment.id), method: :post, multipart: true do
+          = file_field_tag 'file'
+          = submit_tag "Upload"
+      - @garment.uploads.order('updated_at desc').each do |upload|
+        = image_tag upload.file.url, class: 'garment__image'

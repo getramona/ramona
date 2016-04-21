@@ -1,0 +1,8 @@
+- content_for(:nav) { "projects" }
+
+= render layout: 'dashboard', locals: { title: 'Inspiration' } do
+  .inspirations
+    - @inspirations.each do |inspiration|
+      %article.inspiration
+        = link_to project_inspiration_url(project_id: @project.id, id: inspiration.id), class: 'inspiration__link' do
+          = image_tag inspiration.upload.file.url

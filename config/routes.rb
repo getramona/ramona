@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :users
   resources :teams
   resources :projects do
-    resources :garments
+    resources :garments do
+      post '/add_upload', to: 'garments#add_upload'
+    end
     resources :inspirations
 
     get '/calendar', to: 'project#calendar'

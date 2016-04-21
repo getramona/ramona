@@ -1,4 +1,10 @@
 - content_for(:nav) { "projects" }
 
 = render layout: 'dashboard', locals: { title: 'Garments' } do
-  %ul.garments
+  .garments
+    - @garments.each do |garment|
+      %article.garment-thumbnail
+        = link_to project_garment_url(project_id: @project.id, id: garment.id), class: 'garment-thumbnail__link' do
+          %figure.garment-thumbnail__cover{style: "background-image: url(#{garment.uploads.first.file.url})"}
+            &nbsp;
+          %h4.garment-thumbnail__name= garment.name

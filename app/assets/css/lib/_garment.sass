@@ -1,0 +1,57 @@
+.garment
+  margin-top: rhythm(1)
+
+  &__name
+    font-size: $font-size-2
+    font-weight: $font-weight-bold
+
+    span
+      color: $color-true-gray-an1
+      font-size: $font-size-n2
+
+  &__info
+    +container
+
+    margin-top: rhythm(1)
+
+  &__thumbnail
+    +span(7 of 24)
+
+  &__data
+    +span(last 16 of 24)
+
+    table
+      margin-top: rhythm(0.5)
+      width: 100%
+
+      tr
+        +clearfix
+
+        border-top: 1px solid $color-true-gray-an2
+        display: block
+        margin-right: rhythm(1)
+
+        &:last-child
+          border-bottom: 1px solid $color-true-gray-an2
+
+        td
+          display: inline-block
+
+          &.key
+            font-weight: $font-weight-bold
+            float: left
+
+          &.value
+            float: right
+
+  &__uploads
+    border-top: 1px solid $color-true-gray-an2
+    margin-top: rhythm(0.5)
+    padding-top: rhythm(0.5)
+    margin-right: rhythm(1)
+
+    header
+      margin-bottom: rhythm(0.5)
+
+    img
+      margin-top: rhythm(0.5)

@@ -1,0 +1,37 @@
+.garments
+  +container
+
+  margin-right: rhythm(1)
+  padding-bottom: rhythm(2)
+  box-sizing: border-box
+  overflow: hidden
+
+  .garment-thumbnail
+    +gallery(6 of 24)
+
+    background: $color-gray-an4
+    box-sizing: border-box
+    margin-top: rhythm(1)
+
+    &:hover
+      background: $color-gray-an3
+
+    &__cover
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: cover
+      width: 100%
+      height: rhythm(8)
+
+    &__name
+      font-weight: $font-weight-bold
+      padding-top: rhythm(0.25)
+
+    &__link
+      color: $color-text
+      display: block
+      padding: rhythm(0.5)
+
+    &__title
+      display: absolute
+      bottom: 0
