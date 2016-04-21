@@ -23,4 +23,9 @@ class Garment < ApplicationRecord
 
   has_many :uploads, as: :uploadable
   has_many :comments, as: :commentable
+
+  def thumbnail
+    return uploads.first.file.url unless uploads.empty?
+    return ActionController::Base.helpers.asset_path('default_thumbnail.jpg')
+  end
 end

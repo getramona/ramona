@@ -6,8 +6,8 @@
       %ul.nav__list.nav__list--sidebar
         %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>monitor</i> Dashboard".html_safe, project_url(id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Dashboard'}"
         %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>hanger</i> Garments".html_safe, project_garments_url(project_id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Garments'}"
-        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>rainbow</i> Inspiration".html_safe, project_inspirations_url(project_id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Specifications'}"
-        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>briefcase</i> Calendar".html_safe, project_calendar_url(project_id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Calendar'}"
+        %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>rainbow</i> Inspiration".html_safe, project_inspirations_url(project_id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Inspiration'}"
+        -# %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>briefcase</i> Calendar".html_safe, project_calendar_url(project_id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Calendar'}"
         %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>bezier</i> Specifications".html_safe, project_specifications_url(project_id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Specifications'}"
         %li.nav__item.nav__item--sidebar= link_to "<i class='ss-icon icon-adjust'>globe</i> Settings".html_safe, project_settings_url(project_id: @project.id), class: "nav__link nav__link--sidebar #{'nav__link--active' if title == 'Settings'}"
   %section.content

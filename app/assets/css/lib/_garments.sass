@@ -1,6 +1,7 @@
 .garments
   +container
 
+  margin-left: 0
   margin-right: rhythm(1)
   padding-bottom: rhythm(2)
   box-sizing: border-box
@@ -35,3 +36,26 @@
     &__title
       display: absolute
       bottom: 0
+
+    &__sku
+      font-family: $font-family-mono
+      font-size: $font-size-n2
+
+.garment-actions
+  +clearfix
+
+  .form
+    display: inline-block
+    width: 85%
+
+    input
+      width: 100%
+
+  .new
+    display: inline-block
+    width: 8%
+
+    a
+      float: right
+      position: relative
+      top: 10px

@@ -1,6 +1,9 @@
 - content_for(:nav) { "projects" }
 
 = render layout: 'dashboard', locals: { title: 'Inspiration' } do
+  = form_tag project_inspirations_url(project_id: @project.id), method: :post, multipart: true do
+    = file_field_tag 'file'
+    = submit_tag "Upload", class: 'button'
   .inspirations
     - @inspirations.each do |inspiration|
       %article.inspiration

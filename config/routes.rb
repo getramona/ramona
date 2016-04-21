@@ -21,10 +21,11 @@ Rails.application.routes.draw do
     resources :garments do
       post '/add_upload', to: 'garments#add_upload'
     end
+
     resources :inspirations
+    resources :specifications
 
     get '/calendar', to: 'project#calendar'
-    get '/specifications', to: 'project#specifications'
     get '/settings', to: 'project#edit'
   end
 end

@@ -6,7 +6,29 @@ class GarmentsController < ApplicationController
     @garments
   end
 
+  def new
+    @garment = Garment.new
+  end
+
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    @garment.update_attributes(garment_params)
+    @garment.save
+
+    redirect_to project_garment_url(project_id: @project.id, id: @garment.id)
+  end
+
+  def create
+    garment = Garment.new(garment_params)
+    garment.project = @project
+    garment.save
+
+    redirect_to project_garment_url(project_id: @project.id, id: garment.id)
   end
 
   def add_upload
@@ -18,7 +40,17 @@ class GarmentsController < ApplicationController
     redirect_to project_garment_url(project_id: @project.id, id: @garment.id)
   end
 
+  def destroy
+    @garment.destroy
+
+    redirect_to project_garments_url(project_id: @project.id)
+  end
+
   protected
+
+  def garment_params
+    params.require(:garment).permit(:name, :description, :sku)
+  end
 
   def find_project
     @project ||= Project.find(params[:project_id])

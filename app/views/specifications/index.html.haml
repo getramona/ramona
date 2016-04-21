@@ -1,0 +1,23 @@
+- content_for(:nav) { "projects" }
+
+= render layout: 'dashboard', locals: { title: 'Specifications' } do
+  -# = link_to "New", new_project_garment_url(project_id: @project.id), class: "button"
+  %table.specifications
+    %thead
+      %tr
+        %th Point-of-Measure
+        %th Measurement
+        %th
+    %tbody
+      - @specifications.each do |specification|
+        %tr
+          %td= specification.pom
+          %td= "#{specification.measurement} #{specification.unit}"
+          %td
+            = link_to "<i class='ss-icon'>delete</i> Delete</i>".html_safe, project_specification_url(project_id: @project.id, id: specification.id), method: :delete, data: { confirm: 'Delete this point of measure?' }
+    %tfoot
+      = form_for [@project, @specification], class: 'form' do |f|
+        %tr
+          %td= f.text_field :pom, placeholder: 'Point-of-Measure'
+          %td= f.number_field :measurement, placeholder: 'Measurement'
+          %td= f.submit 'Save', class: 'button'

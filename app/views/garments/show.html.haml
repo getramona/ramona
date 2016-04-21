@@ -6,7 +6,7 @@
       = @garment.name
     .garment__info
       %figure.garment__thumbnail
-        = image_tag @garment.uploads.first.file.url
+        = image_tag @garment.thumbnail
       .garment__data
         %p= @garment.description
         %table
@@ -19,6 +19,9 @@
           %tr
             %td.key Last updated
             %td.value= @garment.updated_at.strftime('%d %B %Y, %I:%M%P')
+        .garment__actions
+          %p= link_to "<i class='ss-icon'>edit</i> Edit".html_safe, edit_project_garment_url(project_id: @project.id, id: @garment.id)
+          %p= link_to "<i class='ss-icon'>delete</i> Delete".html_safe, project_garment_url(project_id: @project.id, id: @garment.id), method: :delete, data: { confirm: 'Are you sure you want to delete this garment?' }
     .garment__uploads
       %header
         = form_tag project_garment_add_upload_url(project_id: @project.id, garment_id: @garment.id), method: :post, multipart: true do

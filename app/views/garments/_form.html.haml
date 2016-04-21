@@ -1,0 +1,12 @@
+= form_for [@project, @garment], class: 'form' do |f|
+  .form__row
+    %p= f.label :name
+    %p= f.text_field :name
+  .form__row
+    %p= f.label :description
+    %p= f.text_area :description
+  .form__row
+    %p= f.label :sku
+    %p= f.text_field :sku
+  .form__row.form__row--footer
+    %p= f.submit "Save", class: "button"

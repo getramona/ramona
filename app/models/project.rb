@@ -18,6 +18,7 @@ class Project < ApplicationRecord
 
   has_many :garments
   has_many :uploads, as: :uploadable
+  has_many :specifications
 
   validates :name, presence: true
 end

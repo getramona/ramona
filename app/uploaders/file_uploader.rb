@@ -1,6 +1,10 @@
 class FileUploader < CarrierWave::Uploader::Base
   storage :fog
 
+  def default_url
+    ActionController::Base.helpers.asset_path('default_thumbnail.jpg')
+  end
+
   def store_dir
     "uploads/#{model.uploadable_type.underscore}/#{model.uploadable.id}/#{mounted_as}/#{model.id}"
   end
