@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :inspirations
     resources :specifications
 
-    get '/calendar', to: 'project#calendar'
-    get '/settings', to: 'project#edit'
+    get '/calendar', to: 'projects#calendar'
+    get '/settings', to: 'projects#edit'
   end
 end

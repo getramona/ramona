@@ -16,10 +16,14 @@
 #
 
 class Comment < ApplicationRecord
+  include PublicActivity::Model
+  
   belongs_to :commentable, polymorphic: true
   belongs_to :user
 
   validates :text, presence: true
   validates :commentable, presence: true
   validates :user, presence: true
+
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
 end

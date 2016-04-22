@@ -1,0 +1,4 @@
+- content_for(:nav) { "projects" }
+
+= render layout: 'dashboard', locals: { title: 'Settings' } do
+  = render partial: 'form'

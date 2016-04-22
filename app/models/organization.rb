@@ -11,6 +11,8 @@
 #
 
 class Organization < ApplicationRecord
+  include PublicActivity::Model
+
   has_many :memberships, as: :group, dependent: :destroy
   has_many :users, through: :memberships
   has_many :teams
@@ -18,4 +20,6 @@ class Organization < ApplicationRecord
 
   validates :name, presence: true
   validates :subdomain, presence: true, uniqueness: true
+
+  has_paper_trail
 end

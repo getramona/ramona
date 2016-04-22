@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
 
   def show
     @garments = @project.garments.order('updated_at desc')
+    @activities = PublicActivity::Activity.order('created_at desc')
   end
 
   def new
@@ -42,6 +43,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+    @project.update_attributes(project_params)
+    @project.save
+
+    redirect_to project_settings_url(project_id: @project.id)
+  end
+
   protected
 
   def project_params
@@ -54,7 +62,7 @@ class ProjectsController < ApplicationController
   end
 
   def find_project
-    @project ||= Project.find(params[:id])
+    @project ||= Project.where(id: [params[:id], params[:project_id]]).first
     @project
   end
 end

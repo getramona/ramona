@@ -4,12 +4,13 @@ class ApplicationController < ActionController::Base
   # FIXME: Being a pain
   # protect_from_forgery with: :exception
 
+  include PublicActivity::StoreController
+
   def default_url_options
     { subdomain: request.subdomain }
   end
 
-  before_action :require_login, :current_organization
-  # before_action :current_organization
+  before_action :require_login, :current_organization, :set_paper_trail_whodunnit
 
   private
 

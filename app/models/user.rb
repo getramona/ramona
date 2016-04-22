@@ -38,6 +38,8 @@
 #  index_users_on_unlock_token                         (unlock_token)
 #
 
+require 'digest/md5'
+
 class User < ApplicationRecord
   authenticates_with_sorcery!
 
@@ -52,4 +54,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
+
+  def gravatar_url
+    "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}"
+  end
 end

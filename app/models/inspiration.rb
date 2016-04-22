@@ -15,8 +15,13 @@
 #
 
 class Inspiration < ApplicationRecord
+  include PublicActivity::Model
+
   belongs_to :project
 
   has_one :upload, as: :uploadable
   has_many :comments, as: :commentable
+
+  has_paper_trail
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
 end

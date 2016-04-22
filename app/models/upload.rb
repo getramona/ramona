@@ -11,6 +11,8 @@
 #
 
 class Upload < ApplicationRecord
+  include PublicActivity::Model
+
   mount_uploader :file, FileUploader
 
   belongs_to :uploadable, polymorphic: true
@@ -18,4 +20,6 @@ class Upload < ApplicationRecord
   has_many :comments, as: :commentable
 
   validates :uploadable, presence: true
+
+  has_paper_trail
 end

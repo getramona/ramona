@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  pom         :string
 #  measurement :string
-#  unit        :integer          default(0)
+#  unit        :integer          default("inches")
 #  project_id  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -16,7 +16,13 @@
 #
 
 class Specification < ApplicationRecord
+  include PublicActivity::Model
+
   enum unit: [:inches, :centimeters]
 
   belongs_to :project
+
+  has_paper_trail
+
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
 end

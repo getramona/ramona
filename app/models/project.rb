@@ -14,6 +14,8 @@
 #
 
 class Project < ApplicationRecord
+  include PublicActivity::Model
+
   belongs_to :organization
 
   has_many :garments
@@ -21,4 +23,16 @@ class Project < ApplicationRecord
   has_many :specifications
 
   validates :name, presence: true
+
+  has_paper_trail
+
+  def activity
+    PublicActivity::Activity.order('created_at desc').select do |a|
+      if a.project
+        a.trackable.project == self
+      else
+        false
+      end
+    end
+  end
 end

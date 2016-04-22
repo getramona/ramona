@@ -17,12 +17,17 @@
 #
 
 class Garment < ApplicationRecord
+  include PublicActivity::Model
+
   enum approval_status: [ :in_progress, :pending, :approved ]
 
   belongs_to :project
 
   has_many :uploads, as: :uploadable
   has_many :comments, as: :commentable
+
+  has_paper_trail
+  tracked owner: Proc.new{ |controller, model| controller.current_user }
 
   def thumbnail
     return uploads.first.file.url unless uploads.empty?

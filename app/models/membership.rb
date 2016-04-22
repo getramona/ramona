@@ -17,6 +17,8 @@
 #
 
 class Membership < ApplicationRecord
+  include PublicActivity::Model
+
   enum role: [:user, :leader]
 
   belongs_to :group, polymorphic: true

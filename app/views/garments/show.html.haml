@@ -27,5 +27,5 @@
         = form_tag project_garment_add_upload_url(project_id: @project.id, garment_id: @garment.id), method: :post, multipart: true do
           = file_field_tag 'file'
           = submit_tag "Upload"
-      - @garment.uploads.order('updated_at desc').each do |upload|
+      - @garment.uploads.order('created_at asc').each do |upload|
         = image_tag upload.file.url, class: 'garment__image'

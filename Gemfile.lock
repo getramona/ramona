@@ -116,6 +116,7 @@ GEM
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gravatar_image_tag (1.2.0)
     haml (4.0.7)
       tilt
     hashie (3.4.3)
@@ -155,6 +156,10 @@ GEM
       rack (>= 1.2, < 3)
     oily_png (1.2.0)
       chunky_png (~> 1.3.1)
+    paper_trail (4.1.0)
+      activerecord (>= 3.0, < 6.0)
+      activesupport (>= 3.0, < 6.0)
+      request_store (~> 1.1)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -172,6 +177,11 @@ GEM
     psd_native (1.1.3)
       oily_png (~> 1.1)
       psd (~> 2.1.1)
+    public_activity (1.5.0)
+      actionpack (>= 3.0.0)
+      activerecord (>= 3.0)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0)
     puma (3.1.1)
     pundit (1.1.0)
       activesupport (>= 3.0.0)
@@ -217,6 +227,7 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redis (3.2.2)
+    request_store (1.3.1)
     rspec-core (3.5.0.beta1)
       rspec-support (= 3.5.0.beta1)
     rspec-expectations (3.5.0.beta1)
@@ -297,14 +308,17 @@ DEPENDENCIES
   factory_girl_rails
   fog-aws
   foreman
+  gravatar_image_tag
   haml
   jquery-rails
   listen
   log_buddy
   mini_magick
+  paper_trail
   pg
   pry-rails
   psd_native
+  public_activity
   puma
   pundit
   quiet_assets

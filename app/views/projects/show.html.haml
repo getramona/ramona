@@ -2,10 +2,14 @@
 
 = render layout: 'dashboard', locals: { title: 'Dashboard' } do
   %ul.activity
-    %li.action
-      = link_to "#", class: "action__link" do
-        %aside
-          = image_tag "https://pbs.twimg.com/profile_images/658433422252228608/GDAEEwXn.jpg", class: "avatar"
-        %section
-          %p.action__text= "<strong>Ethan Turkeltaub</strong> did a thing".html_safe
-          %p.action__timestamp 30 mins ago
+    - @activities.each do |activity|
+      %li.action
+        = link_to "#", class: "action__link" do
+          %aside
+            = image_tag activity.owner.gravatar_url, class: "avatar"
+          %section
+            - if activity.trackable.is_a?(Garment)
+              %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d #{activity.trackable.name}".html_safe
+            - elsif activity.trackable.is_a?(Inspiration)
+              %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d a piece of inspiration".html_safe
+            %p.action__timestamp= activity.created_at

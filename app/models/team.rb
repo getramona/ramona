@@ -15,6 +15,8 @@
 #
 
 class Team < ApplicationRecord
+  include PublicActivity::Model
+
   has_many :memberships, as: :group, dependent: :destroy
   has_many :users, through: :memberships
 
@@ -23,4 +25,6 @@ class Team < ApplicationRecord
   validates :name, presence: true
   validates :permalink, presence: true, uniqueness: { scope: :organization_id }
   validates :organization, presence: true
+
+  has_paper_trail
 end

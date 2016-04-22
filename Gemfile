@@ -22,6 +22,11 @@ gem 'mini_magick'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'fog-aws'
 
+gem 'paper_trail'
+gem 'public_activity'
+
+gem 'gravatar_image_tag'
+
 gem 'psd_native'
 
 gem 'haml'
