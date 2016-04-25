@@ -24,6 +24,8 @@ class Project < ApplicationRecord
 
   validates :name, presence: true
 
+  before_create :default_specifications!
+
   has_paper_trail
 
   def activity
@@ -34,5 +36,11 @@ class Project < ApplicationRecord
         false
       end
     end
+  end
+
+  def default_specifications!
+    specifications << Specification.create(pom: 'Shoulder', measurement: '19')
+    specifications << Specification.create(pom: 'Bust', measurement: '18.5')
+    specifications << Specification.create(pom: 'Sleeve Length', measurement: '18')
   end
 end
