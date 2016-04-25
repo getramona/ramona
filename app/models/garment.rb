@@ -19,7 +19,7 @@
 class Garment < ApplicationRecord
   include PublicActivity::Model
 
-  enum approval_status: [ :in_progress, :pending, :approved ]
+  enum approval_status: [ :in_progress, :pending, :rejected, :approved ]
 
   belongs_to :project
 
