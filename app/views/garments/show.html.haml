@@ -19,6 +19,12 @@
           %tr
             %td.key Last updated
             %td.value= @garment.updated_at.strftime('%d %B %Y, %I:%M%P')
+        %h4{style: 'margin-top: 1em; font-weight: bold; margin-bottom: 0'} Specifications
+        %table
+          - @project.specifications.each do |spec|
+            %tr
+              %td.key= spec.pom
+              %td.value= spec.measurement
         .garment__actions
           %p= link_to "<i class='ss-icon'>edit</i> Edit".html_safe, edit_project_garment_url(project_id: @project.id, id: @garment.id)
           %p= link_to "<i class='ss-icon'>delete</i> Delete".html_safe, project_garment_url(project_id: @project.id, id: @garment.id), method: :delete, data: { confirm: 'Are you sure you want to delete this garment?' }
