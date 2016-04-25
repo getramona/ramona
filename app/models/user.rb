@@ -27,6 +27,7 @@
 #  username                        :string           not null
 #  role                            :integer          default("user")
 #  avatar                          :string
+#  avatar_url                      :string
 #
 # Indexes
 #
@@ -45,7 +46,7 @@ class User < ApplicationRecord
 
   enum role: [:user, :admin]
 
-  mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
 
   has_many :memberships, dependent: :destroy
   has_many :organizations, through: :memberships, source: :group, source_type: 'Organization'
@@ -57,5 +58,9 @@ class User < ApplicationRecord
 
   def gravatar_url
     "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}"
+  end
+
+  def avatar
+    avatar_url || "http://gravatar.com/avatar/e17ca7ff5ca6cd4877128c5f1bddb6a7"
   end
 end

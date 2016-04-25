@@ -7,7 +7,7 @@
         %li.action
           = link_to "#", class: "action__link" do
             %aside
-              = image_tag activity.owner.gravatar_url, class: "avatar"
+              = image_tag activity.owner.avatar_url, class: "avatar"
             %section
               - activity.inspect
               - if activity.trackable.is_a?(Garment)
