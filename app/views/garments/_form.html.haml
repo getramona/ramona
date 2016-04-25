@@ -1,4 +1,4 @@
-= form_for [@project, @garment], class: 'form' do |f|
+= form_for [@project, @garment], html: { class: 'form form--page' } do |f|
   .form__row
     %p= f.label :name
     %p= f.text_field :name
@@ -6,7 +6,10 @@
     %p= f.label :description
     %p= f.text_area :description
   .form__row
-    %p= f.label :sku
+    %p= f.label :approval_status
+    %p= f.select :approval_status, Garment.approval_statuses.keys.map { |s| [s.titleize, s] }
+  .form__row
+    %p= f.label :sku, "SKU"
     %p= f.text_field :sku
   .form__row.form__row--footer
     %p= f.submit "Save", class: "button"

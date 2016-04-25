@@ -49,7 +49,7 @@ class GarmentsController < ApplicationController
   protected
 
   def garment_params
-    params.require(:garment).permit(:name, :description, :sku)
+    params.require(:garment).permit(:name, :description, :sku, :approval_status)
   end
 
   def find_project
