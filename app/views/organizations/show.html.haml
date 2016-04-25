@@ -2,13 +2,20 @@
   %ul.activity
     %header.activity__header
       %h3 Recent Activity
-    %li.action
-      = link_to "#", class: "action__link" do
-        %aside
-          = image_tag "https://pbs.twimg.com/profile_images/658433422252228608/GDAEEwXn.jpg", class: "avatar"
-        %section
-          %p.action__text= "<strong>Ethan Turkeltaub</strong> did a thing".html_safe
-          %p.action__timestamp 30 mins ago
+    - @activities.each do |activity|
+      - if activity.trackable.is_a?(Garment) || activity.trackable.is_a?(Inspiration)
+        %li.action
+          = link_to "#", class: "action__link" do
+            %aside
+              = image_tag activity.owner.gravatar_url, class: "avatar"
+            %section
+              - activity.inspect
+              - if activity.trackable.is_a?(Garment)
+                %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d #{activity.trackable.name}".html_safe
+              - elsif activity.trackable.is_a?(Inspiration)
+                %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d a piece of inspiration".html_safe
+              %p.action__timestamp= activity.created_at.strftime('%d %B %Y, %I:%M%P')
+
   %ul.projects
     %header.activity__header
       %h3 Projects

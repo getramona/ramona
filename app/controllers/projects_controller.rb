@@ -22,25 +22,31 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = CreateProject.new.to_model
+    @project = Project.new
   end
 
   def create
-    _project = CreateProject.run(
-      current_user: current_user,
-      project: {
-        organization: current_organization,
-        name: project_params[:name]
-      }
-    )
+    # _project = CreateProject.run(
+    #   current_user: current_user,
+    #   project: {
+    #     organization: current_organization,
+    #     name: project_params[:name]
+    #   }
+    # )
+    #
+    # if _project.valid?
+    #   redirect_to _project.result
+    # else
+    #   @project = _project.
+    #
+    #   render action: :new
+    # end
 
-    if _project.valid?
-      redirect_to _project.result
-    else
-      @project = _project
+    project = Project.new(project_params)
+    project.organization = current_organization
+    project.save
 
-      render action: :new
-    end
+    redirect_to project
   end
 
   def update

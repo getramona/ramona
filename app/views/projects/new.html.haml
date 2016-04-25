@@ -1,3 +1,13 @@
 - content_for(:nav) { "projects" }
 
-= render partial: 'form'
+- content_for(:nav) { "projects" }
+
+%header.header.header--page
+  %h2.header__title Projects
+  %nav.nav.nav--page.nav--secondary
+    %ul.nav__list
+      %li.nav__item
+        = link_to "<i class='ss-icon icon-adjust'>plus</i> New".html_safe, new_project_url, class: "button button--blue"
+
+.page
+  = render partial: 'form'

@@ -3,13 +3,15 @@
 = render layout: 'dashboard', locals: { title: 'Dashboard' } do
   %ul.activity
     - @activities.each do |activity|
-      %li.action
-        = link_to "#", class: "action__link" do
-          %aside
-            = image_tag activity.owner.gravatar_url, class: "avatar"
-          %section
-            - if activity.trackable.is_a?(Garment)
-              %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d #{activity.trackable.name}".html_safe
-            - elsif activity.trackable.is_a?(Inspiration)
-              %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d a piece of inspiration".html_safe
-            %p.action__timestamp= activity.created_at
+      - if activity.trackable.is_a?(Garment) || activity.trackable.is_a?(Inspiration)
+        %li.action
+          = link_to "#", class: "action__link" do
+            %aside
+              = image_tag activity.owner.gravatar_url, class: "avatar"
+            %section
+              - activity.inspect
+              - if activity.trackable.is_a?(Garment)
+                %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d #{activity.trackable.name}".html_safe
+              - elsif activity.trackable.is_a?(Inspiration)
+                %p.action__text= "<strong>#{activity.owner.name}</strong> #{activity.key.split('.').last}d a piece of inspiration".html_safe
+              %p.action__timestamp= activity.created_at.strftime('%d %B %Y, %I:%M%P')

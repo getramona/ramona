@@ -1,6 +1,6 @@
-= form_for @project, class: 'form' do |f|
+= form_for @project, html: { class: 'form' } do |f|
   .form__row
-    = f.label :name
-    = f.text_field :name
-  .form__row
-    = f.submit "Save", class: "button"
+    %p= f.label :name
+    %p= f.text_field :name
+  .form__row.form__row--footer
+    %p= f.submit "Save", class: "button"
