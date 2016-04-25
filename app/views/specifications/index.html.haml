@@ -19,5 +19,5 @@
       = form_for [@project, @specification], class: 'form' do |f|
         %tr
           %td= f.text_field :pom, placeholder: 'Point-of-Measure'
-          %td= f.number_field :measurement, placeholder: 'Measurement'
+          %td= f.number_field :measurement, placeholder: 'Measurement', step: 0.01
           %td= f.submit 'Save', class: 'button'
