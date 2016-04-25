@@ -11,5 +11,8 @@ module Ramona
     config.autoload_paths += Dir.glob("#{config.root}/app/interactions/*")
     config.autoload_paths += Dir.glob("#{config.root}/app/contexts/*")
     config.autoload_paths += Dir.glob("#{config.root}/app/policies/*")
+
+    config.time_zone = 'Eastern Time (US & Canada)'
+    config.active_record.default_timezone = :local
   end
 end
