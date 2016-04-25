@@ -60,7 +60,7 @@ class User < ApplicationRecord
     "http://gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}"
   end
 
-  def avatar
+  def avatar_image
     avatar_url || "http://gravatar.com/avatar/e17ca7ff5ca6cd4877128c5f1bddb6a7"
   end
 end

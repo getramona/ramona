@@ -12,7 +12,7 @@
     .user.users__user
       = link_to user_url(user), class: 'user__link' do
         .user__avatar
-          = image_tag user.avatar_url, class: 'avatar'
+          = image_tag user.avatar_image, class: 'avatar'
         .user__name
           %h3= user.name
         .user__actions
